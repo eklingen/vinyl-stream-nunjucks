@@ -1,0 +1,42 @@
+{
+  "name": "@eklingen/vinyl-stream-nunjucks",
+  "version": "1.0.0",
+  "description": "Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklingen/vinyl-stream-nunjucks.git"
+  },
+  "author": "Elco Klingen",
+  "license": "MIT",
+  "homepage": "https://github.com/eklingen/vinyl-stream-nunjucks#readme",
+  "bugs": {
+    "url": "https://github.com/eklingen/vinyl-stream-nunjucks/issues"
+  },
+  "keywords": [
+    "vinyl",
+    "stream",
+    "gulp",
+    "nunjucks"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "scripts": {
+    "test": "echo 'No tests have been written yet!'"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prefer-object-spread": "^1.2.1",
+    "eslint-plugin-simple-import-sort": "^4.0.0",
+    "eslint-plugin-smells": "^1.0.1",
+    "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "nunjucks": "^3.2.0"
+  }
+}
