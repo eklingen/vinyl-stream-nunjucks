@@ -43,9 +43,6 @@ function nunjucksWrapper (options = {}) {
 
   function onComplete (error, result, file, callback) {
     if (error) {
-      error.relativePath = relative(process.cwd(), error.file)
-      error.message = `\x1b[31m${error.message}\x1b[0m`
-
       return callback(new Error(error, { fileName: file.path }))
     }
 
