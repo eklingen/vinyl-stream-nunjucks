@@ -39,8 +39,8 @@ function nunjucksWrapper (options = {}) {
 
   nunjucks.configure(options.envOptions)
 
-  if (!options.loaders || !options.loaders.length) {
-    options.loaders = [new nunjucks.FileSystemLoader(options.path)]
+  if (!options.nunjucks.loaders || !options.nunjucks.loaders.length) {
+    options.nunjucks.loaders = [new nunjucks.FileSystemLoader(options.nunjucks.path)]
   }
 
   function onComplete (error, result, file, callback) {
@@ -54,15 +54,15 @@ function nunjucksWrapper (options = {}) {
   }
 
   function transform (file, encoding, callback) {
-    const compiler = new nunjucks.Environment(options.loaders, options.envOptions)
+    const compiler = new nunjucks.Environment(options.nunjucks.loaders, options.envOptions)
 
-    if (options.manageEnv) {
-      options.manageEnv.call(null, compiler)
+    if (options.nunjucks.manageEnv) {
+      options.nunjucks.manageEnv.call(null, compiler)
     }
 
     // TODO: The filepath is wrong in error stack straces (it gives either unknown or the original entrypoint). Not sure how to fix this. Both .renderString() and .render() have the same bug.
-    compiler.renderString(file.contents.toString(), merge(file.data || {}, options.data), { path: resolve(file.path) }, (error, result) => onComplete(error, result, file, callback))
-    // compiler.render(file.path, merge(file.data || {}, options.data), (error, result) => onComplete(error, result, file))
+    compiler.renderString(file.contents.toString(), merge(file.data || {}, options.nunjucks.data), { path: resolve(file.path) }, (error, result) => onComplete(error, result, file, callback))
+    // compiler.render(file.path, merge(file.data || {}, options.nunjucks.data), (error, result) => onComplete(error, result, file))
   }
 
   return new Transform({ transform, readableObjectMode: true, writableObjectMode: true })
