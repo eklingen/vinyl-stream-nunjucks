@@ -20,7 +20,40 @@ stream.pipe(nunjucksWrapper())
 
 ## Options
 
-See the ["nunjucks"](https://www.npmjs.com/package/nunjucks) documentation.
+Both the `nunjucks` option and the `envOptions` will be passe to `nunjucks`. See the ["nunjucks"](https://www.npmjs.com/package/nunjucks) documentation for more information.
+
+### `nunjucks`
+
+```
+nunjucksWrapper({
+  nunjucks: {
+    path: '.',
+    ext: '.html',
+    data: {},
+    manageEnv: null,
+    loaders: []
+  }
+})
+```
+
+### `envOptions`
+
+```
+nunjucksWrapper({
+  envOptions: {
+    autoescape: false,
+    throwOnUndefined: true,
+    trimBlocks: false,
+    lstripBlocks: false,
+    watch: false,
+    noCache: false,
+    useCache: true,
+    async: false,
+    express: null,
+    tags: null
+  }
+})
+```
 
 ## Dependencies
 

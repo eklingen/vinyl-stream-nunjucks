@@ -8,24 +8,25 @@ const { resolve } = require('path')
 const { Transform } = require('stream')
 
 const DEFAULT_OPTIONS = {
-  path: '.',
-  ext: '.html',
-  data: {},
-  manageEnv: null,
-  loaders: []
-}
-
-const DEFAULT_ENV_OPTIONS = {
-  autoescape: false,
-  throwOnUndefined: true,
-  trimBlocks: false,
-  lstripBlocks: false,
-  watch: false,
-  noCache: false,
-  useCache: true,
-  async: false,
-  express: null,
-  tags: null
+  nunjucks: {
+    path: '.',
+    ext: '.html',
+    data: {},
+    manageEnv: null,
+    loaders: []
+  },
+  envOptions: {
+    autoescape: false,
+    throwOnUndefined: true,
+    trimBlocks: false,
+    lstripBlocks: false,
+    watch: false,
+    noCache: false,
+    useCache: true,
+    async: false,
+    express: null,
+    tags: null
+  }
 }
 
 function nunjucksWrapper (options = {}) {
@@ -33,7 +34,8 @@ function nunjucksWrapper (options = {}) {
   const nunjucks = require('nunjucks')
 
   options = { ...DEFAULT_OPTIONS, ...options }
-  options.envOptions = { ...DEFAULT_ENV_OPTIONS, ...options.envOptions }
+  options.nunjucks = { ...DEFAULT_OPTIONS.nunjucks, ...options.nunjucks }
+  options.envOptions = { ...DEFAULT_OPTIONS.envOptions, ...options.envOptions }
 
   nunjucks.configure(options.envOptions)
 
