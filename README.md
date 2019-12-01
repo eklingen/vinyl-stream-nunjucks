@@ -1,9 +1,12 @@
 
-# Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks.
+# Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks
 
 Run nunjucks within your streams.
 
-TODO: Write a more detailed readme.
+TODO:
+
+- Write a more detailed readme
+- Include some common used template tag functions
 
 > *NOTE:* No tests have been written yet!
 
@@ -13,7 +16,7 @@ TODO: Write a more detailed readme.
 
 ## Usage
 
-```
+```javascript
 const nunjucksWrapper = require('@eklingen/vinyl-stream-nunjucks')
 stream.pipe(nunjucksWrapper())
 ```
@@ -24,7 +27,7 @@ Both the `nunjucks` option and the `envOptions` will be passe to `nunjucks`. See
 
 ### `nunjucks`
 
-```
+```javascript
 nunjucksWrapper({
   nunjucks: {
     path: '.',
@@ -38,7 +41,7 @@ nunjucksWrapper({
 
 ### `envOptions`
 
-```
+```javascript
 nunjucksWrapper({
   envOptions: {
     autoescape: false,
