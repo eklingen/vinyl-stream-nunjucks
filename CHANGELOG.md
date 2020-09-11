@@ -1,6 +1,7 @@
 
 # Changelog
 
+v1.2.7 - Upgrade dependencies
 v1.2.6 - Upgrade dev dependencies
 v1.2.5 - Upgrade dependencies
 v1.2.4 - Upgrade dependencies
