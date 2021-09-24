@@ -1,6 +1,8 @@
 // Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks.
 //
 // TODO:
+// - BUG: The filepath is wrong in error stack straces (it gives either unknown or the original entrypoint). Not sure how to fix this. Both .renderString() and .render() have the same bug.
+// - BUG: On error the onComplete callback is called multiple times.
 // - Remove dependency on deepmerge
 // - Fix Nunjucks losing file path when macro errors out.
 
@@ -45,6 +47,7 @@ function nunjucksWrapper (options = {}) {
 
   function onComplete (error, result, file, callback) {
     if (error) {
+      console.error(error.toString())
       return callback(new Error(error, { fileName: file.path }))
     }
 
@@ -61,6 +64,7 @@ function nunjucksWrapper (options = {}) {
     }
 
     // TODO: The filepath is wrong in error stack straces (it gives either unknown or the original entrypoint). Not sure how to fix this. Both .renderString() and .render() have the same bug.
+    // TODO: On error the onComplete callback is called multiple times
     compiler.renderString(file.contents.toString(), merge(file.data || {}, options.nunjucks.data), { path: resolve(file.path) }, (error, result) => onComplete(error, result, file, callback))
     // compiler.render(file.path, merge(file.data || {}, options.nunjucks.data), (error, result) => onComplete(error, result, file))
   }
