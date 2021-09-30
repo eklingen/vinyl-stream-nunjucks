@@ -35,6 +35,8 @@ function nunjucksWrapper (options = {}) {
   const merge = require('deepmerge')
   const nunjucks = require('nunjucks')
 
+  let compiler
+
   options = { ...DEFAULT_OPTIONS, ...options }
   options.nunjucks = { ...DEFAULT_OPTIONS.nunjucks, ...options.nunjucks }
   options.envOptions = { ...DEFAULT_OPTIONS.envOptions, ...options.envOptions }
@@ -57,10 +59,12 @@ function nunjucksWrapper (options = {}) {
   }
 
   function transform (file, encoding, callback) {
-    const compiler = new nunjucks.Environment(options.nunjucks.loaders, options.envOptions)
+    if (!compiler) {
+      compiler = new nunjucks.Environment(options.nunjucks.loaders, options.envOptions)
 
-    if (options.nunjucks.manageEnv) {
-      options.nunjucks.manageEnv.call(null, compiler)
+      if (options.nunjucks.manageEnv) {
+        options.nunjucks.manageEnv.call(null, compiler)
+      }
     }
 
     // TODO: The filepath is wrong in error stack straces (it gives either unknown or the original entrypoint). Not sure how to fix this. Both .renderString() and .render() have the same bug.
