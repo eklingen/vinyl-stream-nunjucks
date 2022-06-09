@@ -33,7 +33,7 @@
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
+    "eslint": "^8.17.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
