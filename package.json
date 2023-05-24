@@ -29,8 +29,8 @@
     "test": "echo '** TODO: Write tests! **'; echo 'Linting...'; eslint index.js --fix;"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2",
-    "nunjucks": "^3.2.3"
+    "deepmerge": "^4.3.1",
+    "nunjucks": "^3.2.4"
   },
   "devDependencies": {
     "eslint": "^8.17.0",

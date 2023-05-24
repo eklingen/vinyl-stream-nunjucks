@@ -1,6 +1,7 @@
 
 # Changelog
 
+v2.0.4 - Upgrade dependencies
 v2.0.3 - Upgrade dependencies
 v2.0.2 - Fix performance + maxemitter issue due to re-creating the compiler each transform
 v2.0.1 - Upgrade dependencies
