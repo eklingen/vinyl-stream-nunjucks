@@ -15,7 +15,7 @@ const DEFAULT_OPTIONS = {
     ext: '.html',
     data: {},
     manageEnv: null,
-    loaders: []
+    loaders: [],
   },
   envOptions: {
     autoescape: false,
@@ -27,11 +27,11 @@ const DEFAULT_OPTIONS = {
     useCache: true,
     async: false,
     express: null,
-    tags: null
-  }
+    tags: null,
+  },
 }
 
-function nunjucksWrapper (options = {}) {
+function nunjucksWrapper(options = {}) {
   const merge = require('deepmerge')
   const nunjucks = require('nunjucks')
 
@@ -47,7 +47,7 @@ function nunjucksWrapper (options = {}) {
     options.nunjucks.loaders = [new nunjucks.FileSystemLoader(options.nunjucks.path)]
   }
 
-  function onComplete (error, result, file, callback) {
+  function onComplete(error, result, file, callback) {
     if (error) {
       console.error(error.toString())
       return callback(new Error(error, { fileName: file.path }))
@@ -58,7 +58,7 @@ function nunjucksWrapper (options = {}) {
     return callback(null, file)
   }
 
-  function transform (file, encoding, callback) {
+  function transform(file, encoding, callback) {
     if (!compiler) {
       compiler = new nunjucks.Environment(options.nunjucks.loaders, options.envOptions)
 
