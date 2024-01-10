@@ -1,6 +1,6 @@
 {
   "name": "@eklingen/vinyl-stream-nunjucks",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks.",
   "repository": {
     "type": "git",
