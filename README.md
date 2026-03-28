@@ -1,6 +1,10 @@
 
 # Small vinyl-stream wrapper -aka Gulp plugin- for nunjucks
 
+> This project was originally developed independently and has been used in projects at [Fabrique](https//www.fabrique.nl) and [Q42](https://www.q42.nl).
+> It remains publicly available and can be forked or maintained independently if needed.
+> No guarantees are provided for long-term maintenance.
+
 Run nunjucks within your streams.
 
 TODO:
